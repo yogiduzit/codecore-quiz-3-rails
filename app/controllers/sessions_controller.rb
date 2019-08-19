@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       render(json: {id: user.id, status: 200}, status: 200)
     else
-      render(json: {message: "Either the email or password is incorrect", status: 422}, status: 422)
+      render(json: {message: "Either the email or password is incorrect", status: 404}, status: 404)
     end
   end
 

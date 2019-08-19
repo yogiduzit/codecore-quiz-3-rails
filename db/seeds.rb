@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Post.delete_all
+User.destroy_all
+
 NUM_POSTS = 50
 NUM_USERS = 7
 
