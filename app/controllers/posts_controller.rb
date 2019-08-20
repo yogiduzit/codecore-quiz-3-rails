@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    render(json: {post: @post}, status: 200)
+    render(json: @post, status: 200, each_serializer: PostSerializer, include: "**" )
   end
 
   def update
