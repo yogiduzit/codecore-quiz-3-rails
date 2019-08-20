@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def current
+    status = current_user ? 200 : 404
+    render(json: {current_user: current_user, status: status}, status: status)
+  end
+
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
