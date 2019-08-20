@@ -10,8 +10,15 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins ['example.com', 'localhost:8080']
 
-    resource '*',
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      resource(
+        # allow access to only paths that begin with /api/
+        "*",
+        # this allows all HTTP headers to be sent
+        headers: :any,
+        # Allows sharing of cookies for CORS requests made to this resource
+        credentials: true,
+        # define the HTTP verbs which are allowed in a request
+        methods: [:get, :post, :delete, :patch, :put, :options]
+      )
   end
 end
